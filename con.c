@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include "db.c"
+#include "hash.c"
+
+#define PUT 193502942
+#define DEL 193489338
+#define GET 193492613
 
 char input;
 
-void main()
+int main()
 {
     printf("LITTLEDB INTERFACE\n");
     printf(">");
-    scanf("%i", &input);
-    // we cannot use strings for case, need to hash every input and define as constants
-    // so just using ints for now
-    switch (input)
+    scanf("%s", input);
+    switch (hash(&input))
     {
-    case 1:
+    case PUT:
+    {
         char key;
         char value;
         printf("PUT key>");
@@ -22,6 +26,22 @@ void main()
         put(key, value);
         break;
     }
-    printf(page[0][0]);
-    printf(page[0][1]);
+    case DEL:
+    {
+    }
+    case GET:
+    {
+        int x;
+        printf("PAGE>");
+        scanf("%i", x);
+        printf(page[x][0]);
+        printf(page[x][1]);
+    }
+    default:
+    {
+        printf("BAD INPUT");
+        break;
+    }
+    }
+    return 0;
 }
