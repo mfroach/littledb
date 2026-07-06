@@ -12,7 +12,7 @@ int main()
 {
     printf("LITTLEDB INTERFACE\n");
     printf(">");
-    scanf("%s", input);
+    scanf("%s", &input);
     switch (hash(&input))
     {
     case PUT:
@@ -33,9 +33,9 @@ int main()
     {
         int x;
         printf("PAGE>");
-        scanf("%i", x);
-        printf(page[x][0]);
-        printf(page[x][1]);
+        scanf("%i", &x);
+        printf("%s", &page[x][0]);
+        printf("%s", &page[x][1]);
     }
     default:
     {
